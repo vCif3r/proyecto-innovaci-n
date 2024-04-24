@@ -1,1 +1,38 @@
-<p>register works!</p>
+<div class="row d-flex justify-content-center align-items-center m-0 p-0 min-vh-100  " >
+    <div class="col-12 col-md-10 col-xl-4">
+        <h1 class="text-center jim-nightshade-regular lh-1" style="font-size: 60px;">Regístrarse</h1>
+        <div class="mt-4">
+            <p class="text-center fs-4 mb-0">¿Ya tienes un perfil?
+                <a routerLink="/login" class="text-decoration-none">
+                <span class="text-primary">Iniciar sesión</span>
+                </a>
+            </p>
+        </div>
+        <form>
+            <div class="p-5">
+                <div class="mb-2 input-container">
+                    <fa-icon [icon]="faUser"></fa-icon>
+                    <input class="input-default" type="email" placeholder="Usuario">
+                </div>
+                <div class="mb-2 input-container">
+                    <fa-icon [icon]="faEnvelope"></fa-icon>
+                    <input class="input-default" type="email" placeholder="Correo electrónico">
+                </div>
+                <div class="mb-4 input-container">
+                    <input class="input-password" type="{{ hidePassword ? 'password' : 'text' }}" placeholder="Contraseña">
+                    <a (click)="togglePasswordVisibility()" class="i-lock">
+                        <fa-icon [icon]="currentIcon"></fa-icon>
+                    </a>
+                </div>
+                <!-- politicas -->
+                <div class="d-flex gap-2">
+                    <input type="checkbox">
+                    <span>Acepto los <a class="text-decoration-none">Tèrminos y condiciones</a> del refugio.</span>
+                </div>
+            </div>
+            <div class="d-grid">
+                <button class="btn btn-dark rounded-pill">Crear Cuenta</button>
+            </div>
+        </form>
+    </div>
+</div>
