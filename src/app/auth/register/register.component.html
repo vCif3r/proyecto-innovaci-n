@@ -8,18 +8,18 @@
                 </a>
             </p>
         </div>
-        <form>
+        <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
             <div class="p-5">
                 <div class="mb-2 input-container">
                     <fa-icon [icon]="faUser"></fa-icon>
-                    <input class="input-default" type="email" placeholder="Usuario">
+                    <input class="input-default" type="email" placeholder="Usuario" formControlName="username">
                 </div>
                 <div class="mb-2 input-container">
                     <fa-icon [icon]="faEnvelope"></fa-icon>
-                    <input class="input-default" type="email" placeholder="Correo electrónico">
+                    <input class="input-default" type="email" placeholder="Correo electrónico" formControlName="email">
                 </div>
                 <div class="mb-4 input-container">
-                    <input class="input-password" type="{{ hidePassword ? 'password' : 'text' }}" placeholder="Contraseña">
+                    <input class="input-password" type="{{ hidePassword ? 'password' : 'text' }}" placeholder="Contraseña" formControlName="password">
                     <a (click)="togglePasswordVisibility()" class="i-lock">
                         <fa-icon [icon]="currentIcon"></fa-icon>
                     </a>
