@@ -9,6 +9,7 @@ import { FooterComponent } from '../../shared/components/footer/footer.component
   templateUrl: './nosotros.component.html',
   styleUrl: './nosotros.component.css'
 })
+
 export class NosotrosComponent {
 
 }

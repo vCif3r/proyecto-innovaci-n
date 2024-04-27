@@ -81,6 +81,7 @@ export class CarouselComponent implements OnInit {
 }
 
 @NgModule({
+  
   declarations: [
     CarouselComponent,
     // Otros componentes declarados aquí

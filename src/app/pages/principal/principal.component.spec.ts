@@ -6,12 +6,13 @@ describe('PrincipalComponent', () => {
   let component: PrincipalComponent;
   let fixture: ComponentFixture<PrincipalComponent>;
 
+  
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [PrincipalComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(PrincipalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

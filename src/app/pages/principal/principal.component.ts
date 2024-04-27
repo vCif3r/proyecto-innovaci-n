@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
   imports: [NavbarComponent, FooterComponent],
   templateUrl: './principal.component.html',
   styleUrl: './principal.component.css'
+  
 })
 
 
