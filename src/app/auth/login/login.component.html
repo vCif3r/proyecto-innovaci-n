@@ -8,13 +8,18 @@
                 </a>
             </p>
         </div>
-        <form>
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
             <div class="p-5">
                 <div class="mb-2 input-container">
-                    <input class="input-default" type="email" placeholder="Correo electrónico">
+                    <input class="input-default" type="email" formControlName="email" placeholder="Correo electrónico">      
                 </div>
+
+                <div *ngIf="isSubmitted && formControls['email'].errors" class="alert-warning alert ">
+                    <div *ngIf="formControls['email'].errors['required']">El correo electrónico es requerido</div>
+                </div>
+
                 <div class="mb-2 input-container">
-                    <input class="input-password" type="{{ hidePassword ? 'password' : 'text' }}" placeholder="Contraseña">
+                    <input class="input-password" type="{{ hidePassword ? 'password' : 'text' }}" placeholder="Contraseña" formControlName="password">
                     <a (click)="togglePasswordVisibility()" class="i-lock">
                         <fa-icon [icon]="currentIcon"></fa-icon>
                     </a>
@@ -22,7 +27,8 @@
                 <a href="" class="text-decoration-none"><span class="text-primary">¿Olvidaste tu clave o correo?</span></a>
             </div>
             <div class="d-grid">
-                <button class="btn btn-dark rounded-pill">Iniciar Sesión</button>
+                
+                <input type="submit" value="Iniciar Sesión" class="btn btn-dark rounded-pill">
             </div>
         </form>
     </div>
