@@ -1,0 +1,64 @@
+<div>
+  <!-- Navbar Start -->
+  <app-navbar></app-navbar>
+  <!-- Navbar End -->
+
+  <!-- Carousel Start -->
+  <div class="container-fluid p-0">
+    <div id="header-carousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        @for (carousel of carousels; track $index) {
+          <div class="carousel-item @if($index === 0) active @endif">
+            <img class="d-block w-70" src="{{carousel.img}}" alt="Image" style="object-fit: cover;">
+            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+              <div class="p-3" style="max-width: 900px;">
+                <h3 class="text-white mb-3 d-none d-sm-block">{{carousel.title}}</h3>
+                <h1 class="display-3 text-white mb-3">{{carousel.subtitle}}</h1>
+                <h5 class="text-white mb-3 d-none d-sm-block">{{carousel.parrafo}}</h5>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+      <a class="carousel-control-prev" href="#header-carousel" role="button" data-slide="prev">
+        <div class="btn btn-info" style="width: 45px; height: 45px;">
+          <span class="carousel-control-prev-icon mb-n2"></span>
+        </div>
+      </a>
+      <a class="carousel-control-next" href="#header-carousel" role="button" data-slide="next">
+        <div class="btn btn-info rounded" style="width: 45px; height: 45px;">
+          <span class="carousel-control-next-icon mb-n2"></span>
+        </div>
+      </a>
+    </div>
+  </div>
+  <!-- Carousel End -->
+
+<!-- Catalogo Mascotas Start-->
+<div class="container pt-3">
+  <div class="d-flex flex-column text-center mb-5 pt-5">
+    <h1 class="display-4 m-0" style="font-size: 2rem;"><span class="text-primary">Algunas de nuestras</span> Mascotas en adopción</h1>
+  </div>
+  <div class="row pb-3">
+    @for (catalogo of catalogos; track $index) {
+      <div class="col-lg-4 mb-4">
+        <div class="card border-0 mb-2">
+          <img class="card-img-top" src="{{catalogo.img}}" alt="" style="width: 100%; height: 200px; object-fit: cover;">
+          <div class="card-body bg-light p-4">
+            <h4 class="card-title text-truncate">{{catalogo.name}}</h4>
+            <p>{{catalogo.description}}</p>
+            <a href="#" class="btn btn-info">Ver Ficha</a>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
+
+  <!-- Catalogo Mascotas End -->
+
+  <!-- Footer Start -->
+  <app-footer></app-footer>
+  <!-- Footer End -->
+
+</div>

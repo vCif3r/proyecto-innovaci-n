@@ -3,8 +3,14 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { TestimoniosComponent } from './pages/testimonios/testimonios.component';
 import { BlogComponent } from './pages/blog/blog.component';
+import { PrincipalComponent } from './pages/principal/principal.component';
+import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 
 export const routes: Routes = [
+    {
+      path: 'principal', // ruta del component
+      component: PrincipalComponent  // componente
+    },
     {
         path: 'login', // ruta del component
         component: LoginComponent   // componente
@@ -21,4 +27,8 @@ export const routes: Routes = [
       path: 'blog', // ruta del component
       component: BlogComponent  // componente
     },
+    {
+      path: 'nosotros', // ruta del component
+      component: NosotrosComponent  // componente
+    }
 ];
