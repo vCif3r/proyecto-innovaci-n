@@ -7,6 +7,7 @@ import { PrincipalComponent } from './pages/usuario/principal/principal.componen
 import { NosotrosComponent } from './pages/usuario/nosotros/nosotros.component';
 import { UsuarioComponent } from './pages/usuario/usuario.component';
 import { ApadrinamientosComponent } from './pages/usuario/apadrinamientos/apadrinamientos.component';
+import { Form_apadrinamientoComponent } from './pages/usuario/form_apadrinamiento/form_apadrinamiento.component';
 
 export const routes: Routes = [
   {
@@ -32,6 +33,10 @@ export const routes: Routes = [
       {
         path: 'apadrinamientos',
         component: ApadrinamientosComponent,
+      },
+      {
+        path: 'form-apadrinamiento',
+        component: Form_apadrinamientoComponent,
       }
     ],
   },

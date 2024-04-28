@@ -11,7 +11,9 @@ export class ApadrinamientosComponent{
     {
       img: 'assets/perro01.jpeg',
       name: 'Perritos libres',
-      description: 'Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet, diam sea est diam eos, rebum sit vero stet justo'
+      description: 'Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet, diam sea est diam eos, rebum sit vero stet justo',
+      form: 'form-apadrinamiento',
+
     },
     {
       img: 'assets/perro03.jpg',
