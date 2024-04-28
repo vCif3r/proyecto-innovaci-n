@@ -56,7 +56,7 @@ export class LoginComponent {
           console.log(res)
           localStorage.setItem('token', res.token)
           const tokenPayload = this._decode.decodeToken(res.token);
-          
+          this.router.navigate(['/']);
         },
         err => console.log(err)
       )
