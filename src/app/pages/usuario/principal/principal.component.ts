@@ -1,12 +1,10 @@
 import { Component, NgModule } from '@angular/core';
-import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
-import { FooterComponent } from '../../shared/components/footer/footer.component';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-principal',
   standalone: true,
-  imports: [NavbarComponent, FooterComponent],
+  imports: [],
   templateUrl: './principal.component.html',
   styleUrl: './principal.component.css'
   

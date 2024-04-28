@@ -1,0 +1,4 @@
+Estructure:
+--pages
+    |-usuario
+    |-administrador
