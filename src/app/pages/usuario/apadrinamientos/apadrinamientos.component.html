@@ -1,0 +1,45 @@
+<div>
+
+  <!-- Blog Start -->
+  <div class="container pt-5">
+      <div class="d-flex flex-column text-center mb-5 pt-5">
+          <h1 class="display-4 m-0"><span class="text-primary">Niveles de </span> Apadrinamiento</h1>
+      </div>
+      <div class="row pb-3">
+          @for (blog of blogs; track $index) {
+          <div class="col-lg-4 mb-4">
+              <div class="card border-0 mb-2">
+                  <img class="card-img-top" src="{{blog.img}}" alt="">
+                  <div class="card-body bg-light p-4">
+                      <h4 class="card-title text-truncate">{{blog.name}}</h4>
+                      <p>{{blog.description}}</p>
+                      <a href="form-apadrinamiento" class="btn btn-info">Elegir plan</a>
+                  </div>
+              </div>
+          </div>
+          }
+      </div>
+
+      <!-- hogares -->
+      <!--
+      <div class="d-flex flex-column text-center mb-5 pt-5">
+          <h1 class="display-4 m-0"><span class="text-primary">Hogares</span> Felices</h1>
+      </div>
+      <div class="row pb-3">
+          @for (h of hogares; track $index) {
+              <div class="col-lg-4 mb-4">
+                  <div class="card border-0 mb-2">
+                      <img class="card-img-top" src="{{h.img}}" alt="" style="max-width: 100%; height: 243px;">
+                      <div class="card-body bg-light p-4">
+                          <h4 class="card-title text-truncate">{{h.title}}</h4>
+                          <p>{{h.description}}</p>
+                      </div>
+                  </div>
+              </div>
+          }
+      </div>
+        -->
+  </div>
+
+  <!-- Blog End -->
+</div>
