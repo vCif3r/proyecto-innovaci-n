@@ -37,7 +37,7 @@
     <h1 class="display-4 m-0" style="font-size: 2rem;"><span class="text-primary">Algunas de nuestras</span> Mascotas en adopción</h1>
   </div>
   <div class="row pb-3">
-    @for (catalogo of catalogos; track $index) {
+    @for (catalogo of mascotas; track $index) {
       <div class="col-lg-4 mb-4">
         <div class="card border-0 mb-2">
           <img class="card-img-top" src="{{catalogo.img}}" alt="" style="width: 100%; height: 200px; object-fit: cover;">

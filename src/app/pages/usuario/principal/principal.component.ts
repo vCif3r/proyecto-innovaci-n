@@ -1,5 +1,7 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { IMascota } from '../../../core/models/Mascota.model';
+import { MascotasService } from '../../../core/services/mascotas.service';
 
 @Component({
   selector: 'app-principal',
@@ -11,7 +13,18 @@ import { CommonModule } from '@angular/common';
 })
 
 
-export class PrincipalComponent {
+export class PrincipalComponent implements OnInit {
+  mascotas?: IMascota[] = [];
+
+  constructor(private mascotService: MascotasService){}
+
+  ngOnInit(): void {
+    this.mascotService.allMascotas().subscribe(data => {
+      this.mascotas = data
+      console.log(data)
+    })
+  }
+
   carousels = [
     {
     img: 'assets/carousel-1.jpg',
