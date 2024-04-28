@@ -8,7 +8,7 @@ import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 
 export const routes: Routes = [
     {
-      path: 'principal', // ruta del component
+      path: '', // ruta del component
       component: PrincipalComponent  // componente
     },
     {
