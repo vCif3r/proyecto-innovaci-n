@@ -6,6 +6,7 @@ import { BlogComponent } from './pages/usuario/blog/blog.component';
 import { PrincipalComponent } from './pages/usuario/principal/principal.component';
 import { NosotrosComponent } from './pages/usuario/nosotros/nosotros.component';
 import { UsuarioComponent } from './pages/usuario/usuario.component';
+import { ApadrinamientosComponent } from './pages/usuario/apadrinamientos/apadrinamientos.component';
 
 export const routes: Routes = [
   {
@@ -22,12 +23,16 @@ export const routes: Routes = [
       },
       {
         path: 'blog',
-        component: BlogComponent, 
+        component: BlogComponent,
       },
       {
         path: 'nosotros',
         component: NosotrosComponent,
       },
+      {
+        path: 'apadrinamientos',
+        component: ApadrinamientosComponent,
+      }
     ],
   },
   {
@@ -36,6 +41,6 @@ export const routes: Routes = [
   },
   {
     path: 'register',
-    component: RegisterComponent, 
+    component: RegisterComponent,
   },
 ];
