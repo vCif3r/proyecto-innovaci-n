@@ -32,10 +32,17 @@
                         <a class="nav-link" routerLink="/apadrinamientos" routerLinkActive="nav-item-active">Apadrinamientos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white d-flex gap-2 align-items-center  justify-content-center" routerLink="/login">
-                            <fa-icon [icon]="faUser"></fa-icon>
-                            <span>Iniciar sesión</span>
-                        </a>
+                        @if (usuario) {
+                            <a class="nav-link text-white d-flex gap-2 align-items-center  justify-content-center" routerLink="/login">
+                                <span>{{usuario.username}}</span>
+                            </a>
+                        }@else {
+                            <a class="nav-link text-white d-flex gap-2 align-items-center  justify-content-center" routerLink="/login">
+                                <fa-icon [icon]="faUser"></fa-icon>
+                                <span>Iniciar sesión</span>
+                            </a>
+                        }
+                        
                     </li>
                 </ul>
 
