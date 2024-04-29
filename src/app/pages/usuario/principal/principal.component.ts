@@ -2,11 +2,12 @@ import { Component, NgModule, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IMascota } from '../../../core/models/Mascota.model';
 import { MascotasService } from '../../../core/services/mascotas.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-principal',
   standalone: true,
-  imports: [CommonModule],
+  imports: [RouterLink, CommonModule],
   templateUrl: './principal.component.html',
   styleUrl: './principal.component.css',
 })

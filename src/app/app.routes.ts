@@ -8,6 +8,7 @@ import { NosotrosComponent } from './pages/usuario/nosotros/nosotros.component';
 import { UsuarioComponent } from './pages/usuario/usuario.component';
 import { ApadrinamientosComponent } from './pages/usuario/apadrinamientos/apadrinamientos.component';
 import { Form_apadrinamientoComponent } from './pages/usuario/form_apadrinamiento/form_apadrinamiento.component';
+import { FichaMascotaComponent } from './pages/usuario/ficha-mascota/ficha-mascota.component';
 
 export const routes: Routes = [
   {
@@ -17,18 +18,22 @@ export const routes: Routes = [
       {
         path: '',
         component: PrincipalComponent,
+        title: 'Inicio'
       },
       {
         path: 'testimonios',
         component: TestimoniosComponent,
+        title: 'Testimonios'
       },
       {
         path: 'blog',
         component: BlogComponent,
+        title: 'Blog'
       },
       {
         path: 'nosotros',
         component: NosotrosComponent,
+        title: 'Nosotros'
       },
       {
         path: 'apadrinamientos',
@@ -37,15 +42,25 @@ export const routes: Routes = [
       {
         path: 'form-apadrinamiento',
         component: Form_apadrinamientoComponent,
+      },
+      {
+        path: 'ficha/:id',
+        component: FichaMascotaComponent
       }
     ],
   },
   {
     path: 'login',
     component: LoginComponent,
+    title: 'Login',
   },
   {
     path: 'register',
     component: RegisterComponent,
+    title: 'Registro',
+  },
+  {
+    path: '**',
+    redirectTo: '/',
   },
 ];

@@ -40,7 +40,7 @@
           <div class="card-body bg-light p-4">
             <h4 class="card-title text-truncate">{{catalogo.name}}</h4>
             <p>{{catalogo.description}}</p>
-            <a href="#" class="btn btn-info">Ver Ficha</a>
+            <a [routerLink]="['/ficha', catalogo._id]" class="btn btn-info">Ver Ficha</a>
           </div>
         </div>
       </div>
