@@ -6,52 +6,47 @@ import { MascotasService } from '../../../core/services/mascotas.service';
 @Component({
   selector: 'app-principal',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './principal.component.html',
-  styleUrl: './principal.component.css'
-  
+  styleUrl: './principal.component.css',
 })
-
 export class PrincipalComponent implements OnInit {
   mascotas?: IMascota[] = [];
 
-  constructor(private mascotService: MascotasService){}
+  constructor(private mascotService: MascotasService) {}
 
   ngOnInit(): void {
-    this.mascotService.allMascotas().subscribe(data => {
-      this.mascotas = data
-    })
+    this.mascotService.allMascotas().subscribe((data) => {
+      this.mascotas = data;
+    });
   }
 
   carousels = [
     {
-    img: 'assets/carousel-1.jpg',
-    title: 'Los mejores animales',
-    subtitle: 'Una mascota que te dará felicidad',
-    parrafo: 'Duo nonumy et dolor tempor no et. Diam sit diam sit diam erat'
+      img: 'assets/carousel-1.jpg',
+      title: 'Los mejores animales',
+      subtitle: 'Una mascota que te dará felicidad',
+      parrafo: 'Duo nonumy et dolor tempor no et. Diam sit diam sit diam erat',
     },
     {
       img: 'assets/carousel-2.jpg',
       title: 'Los mejores animales',
       subtitle: 'Una mascota que te dará felicidad',
-      parrafo: 'Duo nonumy et dolor tempor no et. Diam sit diam sit diam erat'
+      parrafo: 'Duo nonumy et dolor tempor no et. Diam sit diam sit diam erat',
     },
     {
-    img: 'assets/carousel-1.jpg',
-    title: 'Los mejores animales',
-    subtitle: 'Una mascota que te dará felicidad',
-    parrafo: 'Duo nonumy et dolor tempor no et. Diam sit diam sit diam erat'
-    }
-  ]
-
+      img: 'assets/carousel-1.jpg',
+      title: 'Los mejores animales',
+      subtitle: 'Una mascota que te dará felicidad',
+      parrafo: 'Duo nonumy et dolor tempor no et. Diam sit diam sit diam erat',
+    },
+  ];
 }
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   declarations: [
     // tus componentes
-  ]
+  ],
 })
-export class MyModule { }
+export class MyModule {}

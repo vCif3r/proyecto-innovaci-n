@@ -1,33 +1,29 @@
 <div>
 
   <!-- Carousel Start -->
-  <div class="container-fluid p-0">
-    <div id="header-carousel" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        @for (carousel of carousels; track $index) {
-          <div class="carousel-item @if($index === 0) active @endif">
-            <img class="d-block w-70" src="{{carousel.img}}" alt="Image" style="object-fit: cover;">
-            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-              <div class="p-3" style="max-width: 900px;">
-                <h3 class="text-white mb-3 d-none d-sm-block">{{carousel.title}}</h3>
-                <h1 class="display-3 text-white mb-3">{{carousel.subtitle}}</h1>
-                <h5 class="text-white mb-3 d-none d-sm-block">{{carousel.parrafo}}</h5>
-              </div>
+  <div id="header-carousel" class="carousel slide">
+    <div class="carousel-inner">
+      @for (carousel of carousels; track $index) {
+        <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+          <img class="d-block w-100" src="{{carousel.img}}" alt="Image" style="object-fit: cover;">
+          <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+            <div class="p-3" style="max-width: 900px;">
+              <h3 class="text-white mb-3 d-none d-sm-block">{{carousel.title}}</h3>
+              <h1 class="display-3 text-white mb-3">{{carousel.subtitle}}</h1>
+              <h5 class="text-white mb-3 d-none d-sm-block">{{carousel.parrafo}}</h5>
             </div>
           </div>
-        }
-      </div>
-      <a class="carousel-control-prev" href="#header-carousel" role="button" data-slide="prev">
-        <div class="btn btn-info" style="width: 45px; height: 45px;">
-          <span class="carousel-control-prev-icon mb-n2"></span>
         </div>
-      </a>
-      <a class="carousel-control-next" href="#header-carousel" role="button" data-slide="next">
-        <div class="btn btn-info rounded" style="width: 45px; height: 45px;">
-          <span class="carousel-control-next-icon mb-n2"></span>
-        </div>
-      </a>
+      }
     </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
   <!-- Carousel End -->
 
