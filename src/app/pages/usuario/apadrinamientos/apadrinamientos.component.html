@@ -1,27 +1,28 @@
 <div>
 
-  <!-- Blog Start -->
-  <div class="container pt-5">
-      <div class="d-flex flex-column text-center mb-5 pt-5">
-          <h1 class="display-4 m-0"><span class="text-primary">Niveles de </span> Apadrinamiento</h1>
-      </div>
-      <div class="row pb-3">
-          @for (blog of blogs; track $index) {
-          <div class="col-lg-4 mb-4">
-              <div class="card border-0 mb-2">
-                  <img class="card-img-top" src="{{blog.img}}" alt="">
-                  <div class="card-body bg-light p-4">
-                      <h4 class="card-title text-truncate">{{blog.name}}</h4>
-                      <p>{{blog.description}}</p>
-                      <a href="form-apadrinamiento" class="btn btn-info">Elegir plan</a>
-                  </div>
-              </div>
-          </div>
-          }
-      </div>
+    <!-- Blog Start -->
+    <div class="container pt-5">
+        <div class="d-flex flex-column text-center mb-5 pt-5">
+            <h1 class="display-4 m-0"><span class="text-primary">Niveles de </span> Apadrinamiento</h1>
+        </div>
+        <div class="row pb-3">
+            @for (plan of planes; track $index) {
+            <div class="col-lg-4 mb-4">
+                <div class="card border-0 mb-2">
+                    <img class="card-img-top" src="{{plan.img}}" alt="">
+                    <div class="card-body bg-light p-4">
+                        <h4 class="card-title text-truncate border-bottom">{{plan.title}}</h4>
+                        <p><b>S/{{plan.price}}</b></p>
+                        <p>{{plan.description}}</p>
+                        <a routerLink="/form-apadrinamiento" class="btn btn-info">Elegir plan</a>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
 
-      <!-- hogares -->
-      <!--
+        <!-- hogares -->
+        <!--
       <div class="d-flex flex-column text-center mb-5 pt-5">
           <h1 class="display-4 m-0"><span class="text-primary">Hogares</span> Felices</h1>
       </div>
@@ -39,7 +40,7 @@
           }
       </div>
         -->
-  </div>
+    </div>
 
-  <!-- Blog End -->
+    <!-- Blog End -->
 </div>

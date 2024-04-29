@@ -1,13 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ITestimonio } from '../../../core/models/Testimonio.model';
+import { TestimoniosService } from '../../../core/services/testimonios.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-testimonios',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './testimonios.component.html',
   styleUrl: './testimonios.component.css'
 })
-export class TestimoniosComponent {
+export class TestimoniosComponent implements OnInit {
+
+  testimonios: ITestimonio[] = [];
+
+  constructor(private testService: TestimoniosService){}
+
+  ngOnInit(): void {
+    this.testService.allTestimonios().subscribe(data => this.testimonios = data);
+  }
+
   blogs = [
     {
       img: 'assets/perro01.jpeg',
