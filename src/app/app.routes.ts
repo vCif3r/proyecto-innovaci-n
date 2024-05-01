@@ -9,6 +9,8 @@ import { UsuarioComponent } from './pages/usuario/usuario.component';
 import { ApadrinamientosComponent } from './pages/usuario/apadrinamientos/apadrinamientos.component';
 import { Form_apadrinamientoComponent } from './pages/usuario/form_apadrinamiento/form_apadrinamiento.component';
 import { FichaMascotaComponent } from './pages/usuario/ficha-mascota/ficha-mascota.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { MascotasComponent } from './pages/admin/mascotas/mascotas.component';
 
 export const routes: Routes = [
   {
@@ -58,6 +60,17 @@ export const routes: Routes = [
     path: 'register',
     component: RegisterComponent,
     title: 'Registro',
+  },
+  {
+    path: 'admin',
+    component: AdminComponent,
+    children: [
+      {
+        path: 'mascotas',
+        component: MascotasComponent,
+        title: 'Mascotas'
+      }
+    ]
   },
   {
     path: '**',

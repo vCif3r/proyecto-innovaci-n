@@ -1,0 +1,16 @@
+.sidebar{
+    width: 250px !important;
+}
+
+.nav-link{
+    color: black;
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar{
+        width: auto !important;
+    }
+    .title-link, .sidebar-title{
+        display: none;
+    }
+}

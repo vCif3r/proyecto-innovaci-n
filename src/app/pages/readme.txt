@@ -1,4 +1,0 @@
-Estructure:
---pages
-    |-usuario
-    |-administrador

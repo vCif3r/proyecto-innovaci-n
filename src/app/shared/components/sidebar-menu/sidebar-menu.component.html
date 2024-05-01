@@ -1,0 +1,52 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 bg-white vh-100 sidebar">
+    <a href="/" class="d-flex align-items-center mb-3 text-decoration-none gap-2 justify-content-xl-start justify-content-center">
+        <img src="assets/logo.png" height="32" alt="logo">
+        <span class="fs-4 sidebar-title">Administrador</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+        <li class="nav-item">
+            <a class="nav-link  d-flex gap-2">
+                <fa-icon [icon]="faGauge"></fa-icon>
+                <span class="title-link">Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link d-flex gap-2">
+                <fa-icon [icon]="faUsers"></fa-icon>
+                <span class="title-link">Usuarios</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/admin/mascotas" routerLinkActive="active" class="nav-link d-flex gap-2">
+                <fa-icon [icon]="faDog"></fa-icon>
+                <span class="title-link">Mascotas</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link d-flex gap-2">
+                <fa-icon [icon]="faSackDollar"></fa-icon>
+                <span class="title-link">Donaciones</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link d-flex gap-2" aria-current="page">
+                <fa-icon [icon]="faUserPlus"></fa-icon>
+                <span class="title-link">Padrinos</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link d-flex gap-2" aria-current="page">
+                <fa-icon [icon]="faBookOpen"></fa-icon>
+                <span class="title-link">Testimonios</span>
+            </a>
+        </li>
+    </ul>
+    <hr>
+    <div class="nav-item">
+        <a class="d-flex gap-2 align-items-center justify-content-center justify-content-xl-start text-decoration-none btn btn-primary rounded-2">
+            <fa-icon [icon]="faRightToBracket"></fa-icon>
+            <span class="title-link d-none d-lg-block">Cerrar sesión</span>
+        </a>
+    </div>
+</div>
