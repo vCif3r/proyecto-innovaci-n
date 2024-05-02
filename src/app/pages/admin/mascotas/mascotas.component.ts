@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { IMascota } from '../../../core/models/Mascota.model';
+import { MascotasService } from '../../../core/services/mascotas.service';
 
 @Component({
   selector: 'app-mascotas',
@@ -7,6 +9,13 @@ import { Component } from '@angular/core';
   templateUrl: './mascotas.component.html',
   styleUrl: './mascotas.component.css'
 })
-export class MascotasComponent {
+export class MascotasComponent implements OnInit {
+  mascotas: IMascota[] = [];
+
+  constructor(private mascotService: MascotasService){}
+
+  ngOnInit(): void {
+    this.mascotService.allMascotas().subscribe(mascotas => this.mascotas = mascotas);
+  }
 
 }

@@ -15,7 +15,7 @@ import { AuthService } from '../../../core/services/auth.service';
 export class NavbarComponent implements OnInit {
   faUser = faUser
 
-  usuario?: any;
+  usuario?: IUsuario;
   constructor(private _auth: AuthService){}
 
   ngOnInit(): void {
