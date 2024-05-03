@@ -1,53 +1,70 @@
 <div class="container-fluid ">
-    <div class="container">
-        <app-form-mascota></app-form-mascota>
-        <div class="card">
-            <div class="card-header">
-                <span class="card-title">Mascotas</span>
-            </div>
-            <div class="card-body p-0">
-                <div class="table-responsive">
-                    <div class="table">
-                        <thead>
-                            <tr>
-                              <th scope="col">#</th>
-                              <th scope="col">Foto</th>
-                              <th scope="col">Nombre</th>
-                              <th scope="col">Edad</th>
-                              <th scope="col">Raza</th>
-                              <th scope="col">Estado</th>
-                              <th scope="col">Acción</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @for (m of mascotas; track $index) {
+    <div class="row">
+        <div class="col-12 col-xl-auto ">
+
+            <app-form-mascota></app-form-mascota>
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">Mascotas</span>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <div class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th>Foto</th>
+                                    <th>Nombre</th>
+                                    <th>Edad</th>
+                                    <th>Raza</th>
+                                    <th>Estado</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (m of mascotas; track $index) {
                                 <tr>
                                     <td>{{$index}}</td>
                                     <td>
-                                        <img src="{{m.img}}" alt="" width="40" height="40" class="object-fit-cover rounded-circle ">
+                                        <img src="{{m.img}}" alt="" width="40" height="40"
+                                            class="object-fit-cover rounded-circle ">
                                     </td>
                                     <td>{{m.name}}</td>
                                     <td>{{m.age}}</td>
                                     <td>{{m.raza}}</td>
                                     <td>
-                                        <span 
-                                        [ngClass]="{
-                                        'bg-primary': m.state === 'adoptado',
-                                        'bg-success': m.state === 'disponible',
-                                        'bg-warning': m.state === 'apadrinado'}" class="badge ">{{m.state}}</span>
+                                        <span [ngClass]="{
+                                                'bg-primary': m.state === 'adoptado',
+                                                'bg-success': m.state === 'disponible',
+                                                'bg-warning': m.state === 'apadrinado'}"
+                                            class="badge ">{{m.state}}</span>
                                     </td>
-                                    <td>
+                                    <td class="d-flex gap-2">
                                         <button class="btn btn-primary ">Editar</button>
+                                        <button class="btn btn-danger  ">Eliminar</button>
                                     </td>
                                 </tr>
-                            }                    
-                        </tbody>
+                                }
+                            </tbody>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-between">
+                        <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modalMascot"
+                            data-bs-whatever="@mdo">Agregar</button>
                     </div>
                 </div>
             </div>
-            <div class="card-footer">
-                <div class="d-flex justify-content-between">
-                    <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modalMascot" data-bs-whatever="@mdo">Agregar</button>
+
+        </div>
+        <div class="col-12 col-xl-4">
+            <div class="card">
+                <div class="card-header">
+                    Mascotas recientes
+                </div>
+                <div class="card-body">
+
                 </div>
             </div>
         </div>

@@ -11,6 +11,7 @@ import { Form_apadrinamientoComponent } from './pages/usuario/form_apadrinamient
 import { FichaMascotaComponent } from './pages/usuario/ficha-mascota/ficha-mascota.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { MascotasComponent } from './pages/admin/mascotas/mascotas.component';
+import { AuthGuard } from './auth/auth.guard';
 
 export const routes: Routes = [
   {
@@ -64,6 +65,8 @@ export const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
+    canActivate: [AuthGuard],
+    data: {expectedRole: "admin"}, //rol esperado
     children: [
       {
         path: 'mascotas',

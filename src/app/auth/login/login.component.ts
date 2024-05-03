@@ -53,10 +53,17 @@ export class LoginComponent {
       const formValues = this.loginForm.value;
       this._auth.login(formValues).subscribe(
         res => {
-          console.log(res)
           localStorage.setItem('token', res.token)
           const tokenPayload = this._decode.decodeToken(res.token);
-          this.router.navigate(['/']);
+          // Redirigir al usuario basándose en su rol
+          if (tokenPayload.roles.includes('visitor')) {
+            this.router.navigate(['/']);
+          } else if (tokenPayload.roles.includes('admin')) {
+            this.router.navigate(['/admin']);
+          } else {
+            // Redirigir a una página de error o de inicio si el rol no es reconocido
+            this.router.navigate(['/error']);
+          }
         },
         err => console.log(err)
       )
