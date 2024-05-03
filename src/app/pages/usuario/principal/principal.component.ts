@@ -17,7 +17,8 @@ export class PrincipalComponent implements OnInit {
   constructor(private mascotService: MascotasService) {}
 
   ngOnInit(): void {
-    this.mascotService.allMascotas().subscribe((data) => {
+    this.mascotService.allMascotasDisponibles().subscribe((data) => {
+      console.log('data: ',data);
       this.mascotas = data;
     });
   }
