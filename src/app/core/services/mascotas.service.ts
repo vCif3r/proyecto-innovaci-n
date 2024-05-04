@@ -1,29 +1,38 @@
 import { Injectable } from '@angular/core';
 import { IMascota } from '../models/Mascota.model';
 import { HttpClient } from '@angular/common/http';
+import { Observable, Subject, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MascotasService {
 
+  private _refresh$ = new Subject<void>();
+  get refresh$(){
+    return this._refresh$;
+  }
+
   private url: string = 'http://localhost:3000/api/mascotas'
   constructor(private http: HttpClient) { }
 
-  allMascotas() {
+  allMascotas(): Observable<IMascota[]> {
     return this.http.get<IMascota[]>(this.url);
   }
 
-  allMascotasDisponibles() {
+  allMascotasDisponibles(): Observable<IMascota[]> {
     return this.http.get<IMascota[]>(`${this.url}/disponibles`);
   }
 
-  getMascotaById(id: any) {
+  getMascotaById(id: any): Observable<IMascota> {
     return this.http.get<IMascota>(`${this.url}/${id}`);
   }
 
-  saveMascota(mascota: IMascota){
-    // recibe dos parametros: el endpoint de la url de la api y el objeto que se envia para guardar
-    return this.http.post<IMascota>(this.url, mascota);
+  saveMascota(mascota: IMascota): Observable<IMascota>{
+    return this.http.post<IMascota>(this.url, mascota)
+    .pipe(
+      tap(()=>{
+      this._refresh$.next();
+    }));
   }
 }
