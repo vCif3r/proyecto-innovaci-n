@@ -2,13 +2,14 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { IMascota } from '../../../core/models/Mascota.model';
 import { MascotasService } from '../../../core/services/mascotas.service';
 import { CommonModule } from '@angular/common';
-import { FormMascotaComponent } from '../../../shared/components/form-mascota/form-mascota.component';
+
 import { Subscription } from 'rxjs';
+import { CreateMascotaComponent } from '../create-mascota/create-mascota.component';
 
 @Component({
   selector: 'app-mascotas',
   standalone: true,
-  imports: [CommonModule,FormMascotaComponent],
+  imports: [CommonModule,CreateMascotaComponent],
   templateUrl: './mascotas.component.html',
   styleUrl: './mascotas.component.css'
 })

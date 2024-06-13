@@ -3,15 +3,16 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, FormControl } 
 import { MascotasService } from '../../../core/services/mascotas.service';
 import { Router } from '@angular/router';
 import { IMascota } from '../../../core/models/Mascota.model';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-form-mascota',
+  selector: 'app-create-mascota',
   standalone: true,
-  imports: [ReactiveFormsModule],
-  templateUrl: './form-mascota.component.html',
-  styleUrl: './form-mascota.component.css'
+  imports: [ReactiveFormsModule, CommonModule],
+  templateUrl: './create-mascota.component.html',
+  styleUrl: './create-mascota.component.css'
 })
-export class FormMascotaComponent {
+export class CreateMascotaComponent {
   mascota: IMascota = {};
   formMascota: FormGroup; //crear formulario sin inicializar
 
@@ -22,7 +23,7 @@ export class FormMascotaComponent {
   ){
     this.formMascota = this.formBuilder.group({ //inicializar formulario con FormBuilder
       img: ['', [Validators.required]],
-      name: ['', [Validators.required, Validators.minLength(3)]],
+      name: ['', [Validators.required, Validators.minLength(4)]],
       age: [1, [Validators.required]],
       raza: ['', [Validators.required]],
       description: ['', [Validators.required]],
@@ -37,7 +38,7 @@ export class FormMascotaComponent {
       console.log(value)
       this.mascotService.saveMascota(this.mascota).subscribe(res => {
         if (res){
-          console.log("Mascota guardada: ", res)
+          console.log("Mascota guardada: ", res);
         }
       }, error => {
         console.error("Error al guardar mascota:", error);

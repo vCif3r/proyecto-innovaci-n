@@ -14,24 +14,38 @@
                     <div class="mb-3">
                         <label>Nombre:</label>
                         <input type="text" formControlName="name" class="form-control">
+                        <div *ngIf="formMascota.get('name')?.invalid && (formMascota.get('name')?.dirty || formMascota.get('name')?.touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="formMascota.get('name')?.errors?.['required']">* El nombre es obligatorio.</div>
+                            <div *ngIf="formMascota.get('name')?.errors?.['minlength']">* El nombre debe tener al menos 4
+                                caracteres.</div>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label>Edad:</label>
-                        <input type="number" formControlName="age" class="form-control">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label>Edad:</label>
+                                <input type="number" formControlName="age" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label>Raza:</label>
+                                <input type="text" formControlName="raza" class="form-control">
+                            </div>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label>Raza:</label>
-                        <input type="text" formControlName="raza" class="form-control">
-                    </div>
+                    
+                    
                     <div class="mb-3">
                         <label>Descripción:</label>
                         <textarea formControlName="description" class="form-control"></textarea>
                     </div>
-                    
+
                     <button type="submit" class="btn btn-success">Guardar</button>
                 </form>
             </div>
         </div>
     </div>
-    
+
 </div>
