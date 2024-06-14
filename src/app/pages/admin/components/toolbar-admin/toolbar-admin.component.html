@@ -1,0 +1,15 @@
+<div class="d-flex justify-content-between align-items-center gap-3">
+    <button mat-icon-button>
+        <mat-icon>dark_mode</mat-icon>
+    </button>
+    <a [matMenuTriggerFor]="menu" style="border: 1px solid #ddd;border-radius: 12px; cursor: pointer;">
+        <img src="{{user.avatar}}" height="40" width="40" style="border-radius: 12px;" alt="">
+    </a>
+    <mat-menu #menu="matMenu" xPosition="before">
+        <ul class="p-2" style="width: 200px;">
+            <li><span>{{user.email}}</span></li><hr>
+            <li><button mat-menu-item>Mi perfil</button></li>
+            <li><button mat-menu-item>Configuración</button></li>
+        </ul>
+    </mat-menu>
+</div>

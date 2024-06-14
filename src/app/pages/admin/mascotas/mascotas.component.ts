@@ -6,14 +6,29 @@ import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { CreateMascotaComponent } from '../create-mascota/create-mascota.component';
 
+import {ChangeDetectionStrategy, inject} from '@angular/core';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+
 @Component({
   selector: 'app-mascotas',
   standalone: true,
-  imports: [CommonModule,CreateMascotaComponent],
+  imports: [CommonModule,CreateMascotaComponent,MatButtonModule, MatDialogModule],
   templateUrl: './mascotas.component.html',
   styleUrl: './mascotas.component.css'
 })
 export class MascotasComponent implements OnInit, OnDestroy {
+
+  readonly dialog = inject(MatDialog);
+
+  openDialog() {
+    const dialogRef = this.dialog.open(CreateMascotaComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
   mascotas: IMascota[] = [];
   subscription?: Subscription;
 

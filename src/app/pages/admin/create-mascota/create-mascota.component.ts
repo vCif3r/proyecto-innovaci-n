@@ -4,11 +4,13 @@ import { MascotasService } from '../../../core/services/mascotas.service';
 import { Router } from '@angular/router';
 import { IMascota } from '../../../core/models/Mascota.model';
 import { CommonModule } from '@angular/common';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-create-mascota',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, MatDialogModule, MatButtonModule],
   templateUrl: './create-mascota.component.html',
   styleUrl: './create-mascota.component.css'
 })

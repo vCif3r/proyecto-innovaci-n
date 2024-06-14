@@ -1,9 +1,23 @@
-<div class="d-flex bg-light vh-100">
-    <app-sidebar-menu></app-sidebar-menu>
-    <div class="overflow-auto w-100">
-        <div></div><!-- header navigation-->
-        <div class="p-3">
+<mat-sidenav-container autosize>
+    <mat-sidenav #sidenav fixedInViewport [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="(isHandset$ | async) === false">
+        <!-- sidebar -->
+        <app-sidebar-menu></app-sidebar-menu>
+        <!-- end sidebar -->
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <!-- toolbar -->
+        <mat-toolbar>
+            <div class="d-flex align-items-center justify-content-end" style="width: 100%;">
+                <button mat-icon-button (click)="sidenav.toggle()" *ngIf="isHandset$ | async">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <app-toolbar-admin></app-toolbar-admin>
+            </div>
+        </mat-toolbar>
+        <!-- end toolbar -->
+        <div class="py-4">
             <router-outlet></router-outlet>
         </div>
-    </div>
-</div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

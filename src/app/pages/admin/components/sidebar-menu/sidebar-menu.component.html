@@ -1,0 +1,25 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 bg-white h-100 sidebar">
+    <div class="container-logo">
+        <a href="/" class="d-flex align-items-center text-decoration-none gap-2 justify-content-xl-start justify-content-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/White_paw_print.png" height="32" alt="logo">
+            <span class="fs-5 sidebar-title">Administrador</span>
+        </a>
+    </div>
+    <ul class="nav nav-pills nav-flush flex-column mb-auto mt-4 text-center">
+        @for (item of menu; track $index) {
+            <li class="nav-item">
+                <a class="nav-link sidebar-item" routerLink="{{item.url}}" routerLinkActive="item-active">
+                    <mat-icon>{{item.icon}}</mat-icon>
+                    <span class="title-link">{{item.title}}</span>
+                </a>
+            </li>
+        }
+    </ul>
+    <hr>
+    <div class="nav-item">
+        <a (click)="logout()" class="d-flex gap-2 align-items-center justify-content-center justify-content-xl-start text-decoration-none btn rounded-2">
+            <mat-icon>logout</mat-icon>
+            <span class="title-link d-none d-lg-block">Cerrar sesión</span>
+        </a>
+    </div>
+</div>

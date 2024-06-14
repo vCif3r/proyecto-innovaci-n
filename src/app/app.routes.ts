@@ -12,6 +12,7 @@ import { FichaMascotaComponent } from './pages/usuario/ficha-mascota/ficha-masco
 import { AdminComponent } from './pages/admin/admin.component';
 import { MascotasComponent } from './pages/admin/mascotas/mascotas.component';
 import { AuthGuard } from './auth/auth.guard';
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 
 export const routes: Routes = [
   {
@@ -68,6 +69,12 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
     data: {expectedRole: "admin"}, //rol esperado
     children: [
+      {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+        title: 'Dashboard'
+      },
       {
         path: 'mascotas',
         component: MascotasComponent,
