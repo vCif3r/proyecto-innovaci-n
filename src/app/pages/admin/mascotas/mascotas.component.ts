@@ -2,35 +2,42 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { IMascota } from '../../../core/models/Mascota.model';
 import { MascotasService } from '../../../core/services/mascotas.service';
 import { CommonModule } from '@angular/common';
-
 import { Subscription } from 'rxjs';
-import { CreateMascotaComponent } from '../create-mascota/create-mascota.component';
-
 import {ChangeDetectionStrategy, inject} from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
-
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import { CreateMascotaComponent } from './modals/create-mascota/create-mascota.component';
+import { EditMascotaComponent } from './modals/edit-mascota/edit-mascota.component';
 
 @Component({
   selector: 'app-mascotas',
   standalone: true,
-  imports: [CommonModule,CreateMascotaComponent,MatButtonModule, MatDialogModule,MatTableModule, MatSortModule, MatPaginatorModule],
+  imports: [CommonModule,
+    CreateMascotaComponent,
+    MatButtonModule,
+    MatDialogModule,MatTableModule,
+    MatSortModule, MatPaginatorModule, EditMascotaComponent],
   templateUrl: './mascotas.component.html',
   styleUrl: './mascotas.component.css'
 })
 export class MascotasComponent implements OnInit, OnDestroy {
-  //table
 
   readonly dialog = inject(MatDialog);
 
-  openDialog() {
-    const dialogRef = this.dialog.open(CreateMascotaComponent);
+  openDialogCreate() {
+    const dialogRefCreate = this.dialog.open(CreateMascotaComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+    // dialogRefCreate.afterClosed().subscribe(result => {
+    //   console.log(`Dialog result: ${result}`);
+    // });
+  }
+
+  openDialogEdit(mascota: IMascota){
+    const dialogRefEdit = this.dialog.open(EditMascotaComponent, {
+      data: mascota // Pasa la mascota seleccionada como datos al diálogo de edición
     });
   }
 

@@ -39,7 +39,7 @@
                                             class="badge ">{{m.state}}</span>
                                     </td>
                                     <td class="d-flex gap-2">
-                                        <button class="btn btn-primary ">Editar</button>
+                                        <button class="btn btn-primary " (click)="openDialogEdit(m)">Editar</button>
                                         <button class="btn btn-danger" (click)="deleteMascota(m._id !)">Eliminar</button>
                                     </td>
                                 </tr>
@@ -50,7 +50,7 @@
                 </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-between">
-                        <button class="btn btn-sm btn-primary" (click)="openDialog()">Agregar</button>
+                        <button class="btn btn-sm btn-primary" (click)="openDialogCreate()">Agregar</button>
                     </div>
                 </div>
             </div>

@@ -39,4 +39,8 @@ export class MascotasService {
   deleteMascota(id: string): Observable<any>{
     return this.http.delete<string>(`${this.url}/${id}`);
   }
+
+  editMascota(mascota: IMascota, id:any): Observable<IMascota>{
+    return this.http.put<IMascota>(`${this.url}/${id}`, mascota);
+  }
 }

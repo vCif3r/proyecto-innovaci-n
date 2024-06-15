@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { MascotasService } from '../../../core/services/mascotas.service';
-import { Router } from '@angular/router';
-import { IMascota } from '../../../core/models/Mascota.model';
+import { MascotasService } from '../../../../../core/services/mascotas.service';
+import { IMascota } from '../../../../../core/models/Mascota.model';
 import { CommonModule } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
@@ -21,7 +20,6 @@ export class CreateMascotaComponent {
   constructor(  // inicializamos los servicios necesarios para utilizar
     private formBuilder: FormBuilder, // utilizar para construir el formulario
     private mascotService: MascotasService,  // ctrl+click para ir directamente al archivo service
-    private routes: Router, // para redireccionar a una vista
   ){
     this.formMascota = this.formBuilder.group({ //inicializar formulario con FormBuilder
       img: ['', [Validators.required]],
@@ -46,6 +44,5 @@ export class CreateMascotaComponent {
         console.error("Error al guardar mascota:", error);
       });
     }
-
   }
 }
