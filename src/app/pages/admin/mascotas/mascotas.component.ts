@@ -10,14 +10,19 @@ import {ChangeDetectionStrategy, inject} from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import {MatSort, MatSortModule} from '@angular/material/sort';
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+
 @Component({
   selector: 'app-mascotas',
   standalone: true,
-  imports: [CommonModule,CreateMascotaComponent,MatButtonModule, MatDialogModule],
+  imports: [CommonModule,CreateMascotaComponent,MatButtonModule, MatDialogModule,MatTableModule, MatSortModule, MatPaginatorModule],
   templateUrl: './mascotas.component.html',
   styleUrl: './mascotas.component.css'
 })
 export class MascotasComponent implements OnInit, OnDestroy {
+  //table
 
   readonly dialog = inject(MatDialog);
 
@@ -32,7 +37,8 @@ export class MascotasComponent implements OnInit, OnDestroy {
   mascotas: IMascota[] = [];
   subscription?: Subscription;
 
-  constructor(private mascotService: MascotasService){}
+  constructor(private mascotService: MascotasService){
+  }
 
   ngOnInit(): void {
     this.getMascotas();
@@ -45,7 +51,19 @@ export class MascotasComponent implements OnInit, OnDestroy {
     console.log("observable cerrado")
   }
 
-  getMascotas(){
+  getMascotas(){ 
     this.mascotService.allMascotas().subscribe(mascotas => this.mascotas = mascotas);
+  }
+
+  deleteMascota(id:string){
+    console.log('id: ', id)
+    this.mascotService.deleteMascota(id).subscribe(
+      () => {
+        console.log('Mascota eliminada correctamente');
+      },
+      error => {
+        console.error('Error al eliminar la mascota:', error);
+      }
+    );
   }
 }

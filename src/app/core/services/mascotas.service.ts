@@ -35,4 +35,8 @@ export class MascotasService {
       this._refresh$.next();
     }));
   }
+
+  deleteMascota(id: string): Observable<any>{
+    return this.http.delete<string>(`${this.url}/${id}`);
+  }
 }
