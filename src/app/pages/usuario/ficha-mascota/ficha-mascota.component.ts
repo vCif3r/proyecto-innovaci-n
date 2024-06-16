@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { IMascota } from '../../../core/models/Mascota.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { MascotasService } from '../../../core/services/mascotas.service';
 
 @Component({
   selector: 'app-ficha-mascota',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './ficha-mascota.component.html',
   styleUrl: './ficha-mascota.component.css',
 })
@@ -15,7 +15,7 @@ export class FichaMascotaComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private service: MascotasService
+    private service: MascotasService,private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -24,5 +24,9 @@ export class FichaMascotaComponent implements OnInit {
       this.mascota = data;
       console.log(data);
     });
+  }
+
+  selectPet(pet: IMascota): void {
+    this.router.navigate(['/form-apadrinamiento', pet._id]);
   }
 }

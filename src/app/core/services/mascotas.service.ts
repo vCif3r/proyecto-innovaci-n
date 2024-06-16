@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IMascota } from '../models/Mascota.model';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subject, tap } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

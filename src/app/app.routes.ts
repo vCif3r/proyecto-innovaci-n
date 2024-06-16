@@ -44,7 +44,7 @@ export const routes: Routes = [
         component: ApadrinamientosComponent,
       },
       {
-        path: 'form-apadrinamiento',
+        path: 'form-apadrinamiento/:id',
         component: Form_apadrinamientoComponent,
       },
       {

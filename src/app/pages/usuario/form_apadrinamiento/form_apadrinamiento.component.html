@@ -1,72 +1,103 @@
- <div class="container mt-5">
-    <div class="form-container">
+<mat-stepper linear #stepper>
+  <!-- step one -->
+  <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
+    <form class="container" [formGroup]="firstFormGroup">
       <div class="row">
-        <div class="col-md-7">
+        <div class="col-7">
           <h3 class="text-center mb-4">Datos personales</h3>
-          <form>
-            <div class="row">
+          <div >
+            <ng-template matStepLabel>Formulario</ng-template>
+            <div class="row m-0">
               <div class="col-md-6">
-                <div class="form-group">
-                  <label for="nombre">Nombres</label>
-                  <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre">
-                </div>
-                <div class="form-group">
-                  <label for="apellido">Apellidos</label>
-                  <input type="text" class="form-control" id="apellido" placeholder="Ingrese su apellido">
-                </div>
-                <div class="form-group">
-                  <label for="telefono">Teléfono</label>
-                  <input type="tel" class="form-control" id="telefono" placeholder="Ingrese su teléfono">
-                </div>
-                <div class="form-group">
-                  <label for="email">Correo electrónico</label>
-                  <input type="email" class="form-control" id="email" placeholder="Ingrese su correo electrónico">
-                </div>
-                <div class="form-group">
-                  <label for="dni">DNI</label>
-                  <input type="text" class="form-control" id="dni" placeholder="Ingrese su DNI">
-                </div>
+                <mat-form-field [appearance]="'fill'">
+                  <mat-label>Nombres</mat-label>
+                  <input matInput formControlName="nombres" placeholder="First name" required>
+                </mat-form-field>
+                <mat-form-field [appearance]="'fill'">
+                  <mat-label>Apellidos</mat-label>
+                  <input matInput formControlName="apellidos" placeholder="Last name" required>
+                </mat-form-field>
+                <mat-form-field [appearance]="'fill'">
+                  <mat-label>Teléfono</mat-label>
+                  <input matInput formControlName="telefono" placeholder="Teléfono" required>
+                </mat-form-field>
+                <mat-form-field [appearance]="'fill'">
+                  <mat-label>Correo Electrónico</mat-label>
+                  <input matInput formControlName="correo" placeholder="Correo" required>
+                </mat-form-field>
+                <mat-form-field [appearance]="'fill'">
+                  <mat-label>DNI</mat-label>
+                  <input matInput formControlName="dni" placeholder="DNI" required>
+                </mat-form-field>
               </div>
               <div class="col-md-6">
-                <div class="form-group">
-                  <label for="profesion">Profesión/Estudios</label>
-                  <input type="text" class="form-control" id="profesion" placeholder="Ingrese su profesión o estudios">
-                </div>
-                <div class="form-group">
-                  <label for="nacionalidad">Nacionalidad</label>
-                  <select class="form-control" id="nacionalidad">
-                    <option value="">Seleccione una opción</option>
-                    <option value="1">Opción 1</option>
-                    <option value="2">Opción 2</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="ciudad">Ciudad</label>
-                  <input type="text" class="form-control" id="ciudad" placeholder="Ingrese su ciudad">
-                </div>
-                <div class="form-group">
-                  <label for="direccion">Dirección</label>
-                  <input type="text" class="form-control" id="direccion" placeholder="Ingrese su dirección">
-                </div>
+      
+                <mat-form-field [appearance]="'fill'">
+                  <mat-label>Profesión/Estudios</mat-label>
+                  <input matInput formControlName="profesion" placeholder="Profesion" required>
+                </mat-form-field>
+      
+                <mat-form-field >
+                  <mat-label>Nacionalidad</mat-label>
+                  <mat-select required formControlName="nacionalidad">
+                    <mat-option>-- None --</mat-option>
+                    <mat-option value="option">Option</mat-option>
+                  </mat-select>
+                </mat-form-field>
+      
+                <mat-form-field [appearance]="'fill'">
+                  <mat-label>Ciudad</mat-label>
+                  <input matInput formControlName="ciudad" placeholder="Ingrese ciudad" required>
+                </mat-form-field>
+                <mat-form-field [appearance]="'fill'">
+                  <mat-label>Dirección</mat-label>
+                  <input matInput formControlName="direccion" placeholder="Ingrese Dirección" required>
+                </mat-form-field>
+                
                 <div class="form-group form-check">
-                  <input type="checkbox" class="form-check-input" id="condiciones">
-                  <label class="form-check-label" for="condiciones">Declaro que he leído estas condiciones y que las acepto.</label>
+                  <mat-checkbox class="example-margin">Declaro que he leído estas condiciones y que las
+                    acepto.</mat-checkbox>
                 </div>
               </div>
             </div>
-          </form>
+
+          </div>
         </div>
         <div class="col-md-5">
           <div class="details-box">
-            <h5>Detalles</h5>
-            <img src="https://via.placeholder.com/150" alt="Imagen de perfil" class="img-fluid mb-3">
-            <p>Candy</p>
+            <h4>Detalles</h4>
+            <img src="{{pet?.img}}" alt="Imagen de perfil" class="img-fluid mb-3">
+            <p>{{pet?.name}}</p>
             <p>Plan seleccionado: Perritos libres</p>
-            <p>TOTAL S/50</p>
-            <button class="btn btn-info btn-block">Continuar</button>
+            <p>TOTAL S/{{price}}</p>
+            <button matStepperNext class="btn btn-info btn-block" [disabled]="!firstFormGroup.valid">Continuar</button>
           </div>
         </div>
       </div>
-    </div>
-</div>
+    </form>
+    
 
+  </mat-step>
+  <!-- step two -->
+  <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Realizar pago</ng-template>
+      <mat-form-field>
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper>
