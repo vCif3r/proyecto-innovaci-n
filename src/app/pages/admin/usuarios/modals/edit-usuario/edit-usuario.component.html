@@ -1,0 +1,49 @@
+<h2 mat-dialog-title>Editar Usuario</h2>
+<form [formGroup]="formUsuario" (ngSubmit)="save()">
+  <mat-dialog-content class="mat-typography">
+    <div class="mb-3">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Avatar</mat-label>
+        <input matInput formControlName="avatar" type="text">
+      </mat-form-field>
+    </div>
+    <div class="mb-3">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" required>
+        <mat-error *ngIf="formUsuario.get('username')?.hasError('required')">Username es requerido</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="mb-3">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email" required>
+        <mat-error *ngIf="formUsuario.get('email')?.hasError('required')">Email es requerido</mat-error>
+        <mat-error *ngIf="formUsuario.get('email')?.hasError('email')">Formato de email inválido</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="mb-3">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password">
+        <mat-hint>Deja en blanco para no cambiar la contraseña</mat-hint>
+      </mat-form-field>
+    </div>
+    <div class="mb-3">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Roles</mat-label>
+        <mat-select formControlName="roles" multiple>
+          <mat-option value="admin">Admin</mat-option>
+          <mat-option value="volunteer">Volunteer</mat-option>
+          <mat-option value="visitor">Visitor</mat-option>
+          <mat-option value="donor">Donor</mat-option>
+          <mat-option value="adopter">Adopter</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial type="submit" [disabled]="!formUsuario.valid">Guardar</button>
+  </mat-dialog-actions>
+</form>
