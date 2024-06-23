@@ -1,0 +1,28 @@
+<h2 mat-dialog-title>Edit Testimonio</h2>
+<form [formGroup]="formTestimonioEdit" (ngSubmit)="save()">
+    <mat-dialog-content class="mat-typography">
+        <div class="mb-3">
+            <label>Img:</label>
+            <input type="text" formControlName="img" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label>Titulo:</label>
+            <input type="text" formControlName="title" class="form-control">
+            <div *ngIf="formTestimonioEdit.get('title')?.invalid && (formTestimonioEdit.get('title')?.dirty || formTestimonioEdit.get('title')?.touched)"
+                class="alert alert-danger">
+                <div *ngIf="formTestimonioEdit.get('title')?.errors?.['required']">* El nombre es obligatorio.</div>
+                <div *ngIf="formTestimonioEdit.get('title')?.errors?.['minlength']">* El nombre debe tener al menos 4
+                    caracteres.</div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label>Descripción:</label>
+            <textarea formControlName="description" class="form-control"></textarea>
+        </div>
+
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancelar</button>
+        <button mat-button [mat-dialog-close]="true" cdkFocusInitial type="submit" [disabled]="!formTestimonioEdit.valid">Guardar</button>
+    </mat-dialog-actions>
+</form>

@@ -25,7 +25,7 @@ export class SidebarMenuComponent {
     {url: "/admin/mascotas",title:"Mascotas",icon:"pets"},
     {url: "/admin/donaciones",title:"Donaciones",icon:"payments"},
     {url: "/admin/pádrinos",title:"Padrinos",icon:"supervised_user_circle"},
-    {url: "/admin/testimonios",title:"Testimonios",icon:"book"}
+    {url: "/admin/testimoniosA",title:"Testimonios",icon:"book"}
   ]
 
   constructor(private _auth: AuthService){}
