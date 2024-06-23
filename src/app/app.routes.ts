@@ -13,6 +13,8 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { MascotasComponent } from './pages/admin/mascotas/mascotas.component';
 import { AuthGuard } from './auth/auth.guard';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { TestimoniosAdminComponent } from './pages/admin/testimonios-admin/testimonios-admin.component';
+import { UsuariosComponent } from './pages/admin/usuarios/usuarios.component';
 
 export const routes: Routes = [
   {
@@ -79,7 +81,16 @@ export const routes: Routes = [
         path: 'mascotas',
         component: MascotasComponent,
         title: 'Mascotas'
-      }
+      },
+      {
+                path: 'testimoniosA',
+                component: TestimoniosAdminComponent,
+                title: 'Testimonios'},
+                {
+                  path: 'usuarios',
+                component: UsuariosComponent,
+                title: 'Usuarios'
+                }
     ]
   },
   {
