@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Usuarios</span>
+        </div>
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th>Avatar</th>
+                  <th>Username</th>
+                  <th>Email</th>
+                  <th>Roles</th>
+                  <th>Acción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let usuario of usuarios; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>
+                    <img [src]="usuario.avatar" alt="Avatar" width="40" height="40" class="object-fit-cover rounded-circle">
+                  </td>
+                  <td>{{ usuario.username }}</td>
+                  <td>{{ usuario.email }}</td>
+                  <td>{{ usuario.roles.join(', ') }}</td>
+                  <td class="d-flex gap-2">
+                    <button class="btn btn-primary" (click)="openDialogEdit(usuario)">Editar</button>
+                    <button class="btn btn-danger" (click)="deleteUsuario(usuario._id!)">Eliminar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-sm btn-primary" (click)="openDialogCreate()">Agregar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 export interface IUsuario {
-    _id?: number;
+    _id?: string;
     avatar: string;
     username : string;
     roles: [string];
